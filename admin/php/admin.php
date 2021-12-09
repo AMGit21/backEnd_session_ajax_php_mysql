@@ -67,7 +67,8 @@ $name = isset($_SESSION["user_name"]) ? $_SESSION["user_name"] : "Anonymous"; //
         <?php include('add_person_form.php') ?>
         <!-- End Add Person -->
         <!-- Add Subject -->
-        <?php include('add_subject_form.php') ?>
+        <?php //include('add_subject_form.php') 
+        include('show_subjects_form.php') ?>
         <!-- End Add Subject -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

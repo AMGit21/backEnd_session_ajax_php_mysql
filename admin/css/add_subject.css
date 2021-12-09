@@ -23,7 +23,9 @@ body {
 }
 
 button[name] {
-    font-weight: bold;
+    border: none !important;
+    outline: none !important;
+    background-color: blueviolet !important;
 }
 
 hr {
