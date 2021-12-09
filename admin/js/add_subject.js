@@ -3,6 +3,7 @@ $(document).ready(function() {
         let url = '../php/get_subjects.php';
         try {
             let res = await fetch(url);
+            // console.log(res);
             return await res.json();
         } catch (error) {
             console.log(error);
@@ -16,10 +17,11 @@ $(document).ready(function() {
         // for (let i = 0; i < Object.keys(subjects).length; i++) {
         //     console.log(Object.values(subjects));
         // }
-        let html = '';
+        console.log(subjects);
+        let tbody_subjects = '';
         Object.keys(subjects).forEach(subject => {
 
-            let htmlSegment = `<tr class='table'>
+            let subject_record = `<tr class='table'>
             <td>${subjects[subject].name}</td>
             <td>${subjects[subject].semester}</td>
             <td>
@@ -27,23 +29,25 @@ $(document).ready(function() {
                 <button type="button" class="btn btn-danger" id="del${subject}">Delete</button>
             </td>
             </tr>`;
-            html += htmlSegment;
+            tbody_subjects += subject_record;
             edt_arr.push(`edt${subject}`);
             del_arr.push(`del${subject}`);
         });
-        console.log(edt_arr);
-        $('#show_subject_details').append(html);
+        // console.log(edt_arr);
+        $('#show_subject_details').append(tbody_subjects);
         $('#show_sub_count').html(Object.keys(subjects).length);
+
         for (let i = 0; i < edt_arr.length; i++) {
             document.getElementById(edt_arr[i]).addEventListener("click", (e) => {
                 e.preventDefault();
-
                 console.log(e.target.id);
             });
             document.getElementById(del_arr[i]).addEventListener("click", (e) => {
                 e.preventDefault();
                 $(e.target).closest('tr').remove();
                 console.log(e.target.id);
+                console.log(del_arr);
+                console.log(subjects);
             });
         }
     }
@@ -78,12 +82,12 @@ $(document).ready(function() {
     //     dataType: "json",
     //     url: "../php/get_subjects.php",
     //     success: function(received_data) {
-    //     console.log(received_data);
-    //     for (let i = 0; i < received_data["sub_count"]; i++) {
-    //     var new_row = `<tr class='table bg-info'><td>${received_data[i].name}</td><td>${received_data[i].semester}</td></tr>`;
-    //     $('#show_subject_details').append(new_row);
-    // }
-    // $('#show_sub_count').html(received_data["sub_count"]);
+    //         console.log(received_data);
+    //         for (let i = 0; i < received_data["sub_count"]; i++) {
+    //             var new_row = `<tr class='table bg-info'><td>${received_data[i].name}</td><td>${received_data[i].semester}</td></tr>`;
+    //             $('#show_subject_details').append(new_row);
+    //         }
+    //         $('#show_sub_count').html(received_data["sub_count"]);
     //     },
     //     error: function(request, status, error) {
     //         console.log(error);
