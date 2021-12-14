@@ -52,6 +52,9 @@ if (isset($_POST['submit'])) {
         //     echo "the user name doesn't exist";
 
         $conn->close();
-    } else
+    } else{
         echo "please enter the data";
+        header("Location: ./index.php");
+    }
 }
+?>

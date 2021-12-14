@@ -94,7 +94,9 @@ $(document).ready(function() {
     //     }
     // });
 
-
+    //#B95656
+    //#121032
+    //cadetblue
     $('#add_subject').click(function(e) {
         e.preventDefault();
         var sub_name = $("#sub_name").val();

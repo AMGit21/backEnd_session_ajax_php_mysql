@@ -22,10 +22,11 @@ body {
     /* font-weight: bold; */
 }
 
-button[name] {
+button[name]:hover {
     border: none !important;
     outline: none !important;
-    background-color: blueviolet !important;
+    background-color: cadetblue;
+    font-weight: bold;
 }
 
 hr {
